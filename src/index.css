@@ -28,6 +28,7 @@ code {
 .dogCard:hover {
   transition: 0.2s;
   -webkit-filter: brightness(70%);
+  cursor: pointer;
 }
 
 .dogCardName {
@@ -53,4 +54,12 @@ code {
 
 .dogButton {
   background-color: #6f4326 !important;
+}
+
+.specialModalHeader {
+  padding: 0px !important;
+}
+
+.specialModalHeader img {
+  border-radius: 5px;
 }
