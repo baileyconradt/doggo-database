@@ -1,6 +1,10 @@
 import {Container, Row, Col} from 'react-bootstrap'
 import DogSection from './DogSection'
 
+/**
+ * The "Top Dogs" Section on the Main Page
+ * @param {object} props 
+ */
 export default function TopDogs(props) {
     return <Container fluid className='m-3'>
         <Row>

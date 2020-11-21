@@ -2,6 +2,11 @@ import react from 'react'
 import { Col, Container, Row, Button } from 'react-bootstrap'
 import DogSection from './DogSection'
 
+
+/**
+ * The "My Dogs" section on the main page
+ * @param {object} props 
+ */
 export default function MyDogs(props) {
     return <Container fluid className='m-3'>
         <Row>
