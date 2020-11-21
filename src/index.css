@@ -11,3 +11,46 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.dogCardParent {
+  position: relative;
+}
+
+.dogCard {
+
+  object-fit: cover;
+  width: 250px;
+  height: 250px;
+  border-radius: 5px;
+  transition: 0.2s;
+}
+
+.dogCard:hover {
+  transition: 0.2s;
+  -webkit-filter: brightness(70%);
+}
+
+.dogCardName {
+  color: white;
+  position: absolute;
+  top: 90%;
+  left: 86%;
+  transform: translate(-50%, -50%);
+  background-color: black;
+  border-radius: 5px;
+  box-shadow:  black 0px 0px 3px 3px;
+  padding: 2px 4px 2px 4px;
+  opacity: 90%;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.grow-3 {
+  flex-grow: 3;
+}
+
+.dogButton {
+  background-color: #6f4326 !important;
+}

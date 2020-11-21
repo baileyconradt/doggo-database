@@ -6,7 +6,7 @@ export default function DogSection(props) {
   return (
     <Container fluid>
       <Row>
-        <Col className='d-flex flex-row'>
+        <Col className='d-flex flex-wrap'>
           {
             //this is where we would loop through and render each dog
           }

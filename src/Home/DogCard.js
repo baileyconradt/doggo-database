@@ -1,5 +1,5 @@
 import react, { useEffect, useState } from 'react'
-import { Card } from 'react-bootstrap'
+import { Card, Image } from 'react-bootstrap'
 
 function getCorg() {
     fetch('https://dog.ceo/api/breed/pembroke/images/random')
@@ -25,11 +25,9 @@ export default function DogCard(props) {
     })
     }, [])
 
-    return <Card style={{width: '18rem'}} className='m-3'>
-        <Card.Img variant='top' src={dogLink}></Card.Img>
-        <Card.Body>
-            <Card.Title>Luna</Card.Title>
-            <Card.Text>This beautiful Pembroke Welsh Corgi is really quite a sweetheart.</Card.Text>
-        </Card.Body>
-    </Card>
+    return <div className='m-3 shadow dogCardParent'>
+        <Image variant='top' className='dogCard'  src={dogLink}>
+        </Image>
+        <p className='dogCardName'>Flufferbottom</p>
+    </div>
 }

@@ -6,7 +6,11 @@ export default function TopDogs(props) {
         <Row>
             <Col className='d-flex flex-row'>
             <h2>Top Dogs</h2>
-            <p>+ New</p>
+            </Col>
+        </Row>
+        <Row>
+            <Col className='text-left'>
+            <p>The highest rated pups in the world.</p>
             </Col>
         </Row>
         <Row>
