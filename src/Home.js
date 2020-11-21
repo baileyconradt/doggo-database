@@ -77,7 +77,7 @@ function Dog(props) {
     return (<Card>
         <Card.Title>{dogName}</Card.Title>
         <Card.Text></Card.Text>
-        <Card.Text>Created by: {displayName}</Card.Text>
+        <Card.Text>Added by: {displayName}</Card.Text>
         <Card.Text>Breed: {breed}</Card.Text>
         <Card.Text>Color: {color}</Card.Text>
         <Card.Text>Birthday: {birthday}</Card.Text>

@@ -2,7 +2,7 @@ import {Navbar, Nav, NavDropdown, Button, Form, FormControl} from 'react-bootstr
 
 export default function TopNav(props) {
     return (<Navbar bg="dark" variant="dark" expand="lg">
-    <Navbar.Brand href="#home">DoggoDatabase</Navbar.Brand>
+    <Navbar.Brand href="#home">Corgo.net</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
