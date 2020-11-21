@@ -10,7 +10,7 @@ export default function TopNav(props) {
           Tubes, Potatoes, and Nubs since 2020 
         </Nav.Link>
       </Nav>
-      <Nav className='grow-3'>
+      <Nav style={{flexGrow: 10}}>
       <Form inline className='grow'>
         <Form.Control type="text" placeholder="Search" className="mr-sm-2" style={{width: '100%'}} />
       </Form>

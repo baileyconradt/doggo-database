@@ -17,12 +17,13 @@ code {
 }
 
 .dogCard {
-
   object-fit: cover;
   width: 250px;
   height: 250px;
   border-radius: 5px;
   transition: 0.2s;
+  background: rgb(0,0,0);
+  background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 90%, rgba(2,0,36,1) 100%);
 }
 
 .dogCard:hover {
@@ -33,15 +34,16 @@ code {
 
 .dogCardName {
   color: white;
+  background-color: #6f4326;
   position: absolute;
-  top: 90%;
-  left: 86%;
-  transform: translate(-50%, -50%);
-  background-color: black;
+  top: 100%;
+  left: 100%;
+  transform: translate(-100%, -100%);
+  font-size: large;
+  font-weight: bold;
   border-radius: 5px;
-  box-shadow:  black 0px 0px 3px 3px;
   padding: 2px 4px 2px 4px;
-  opacity: 90%;
+  opacity: 80%;
 }
 
 .grow {
