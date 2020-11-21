@@ -39,20 +39,31 @@ export default function DogCard(props) {
       ></Image>
       <p className="dogCardName">Flufferbottom</p>
 
-      <Modal show={show} onHide={() => setShow(false)}>
-        <div>
-          <Image src={dogLink} width="100%" />
-        </div>
-        <div className="m-3">
-          <h3>Luna</h3>
-          <small className="text-muted">
-            <p>Pembroke Welsh Corgi owned by Bailey C.</p>
-          </small>
-          <p>
-            Look at this cute pupper go. She loves to zoom around the yard when
-            Bailey takes her outside. She also loves long walks along the Fox
-            River.
-          </p>
+      <Modal
+        show={show}
+        onHide={() => setShow(false)}
+        width="100%"
+        size="xl"
+        centered
+      >
+        <div className="d-flex flex-row flex-wrap" style={{minHeight: '50vh'}}>
+          <Image src={dogLink} style={{flexGrow: 1, objectFit: 'cover'}} />
+          <div className="m-3 grow" style={{ width: "400px" }}>
+            <h3>Luna</h3>
+            <div className="d-flex flex-row" id="keywords">
+              <div className="mr-1 p-2 px-3 keyword">Fluffy</div>
+              <div className="mr-1 p-2 px-3 keyword">Long</div>
+              <div className="mr-1 p-2 px-3 keyword">Adorable</div>
+            </div>
+            <small className="text-muted">
+              <p>Pembroke Welsh Corgi owned by Bailey C.</p>
+            </small>
+            <p>
+              Look at this cute pupper go. She loves to zoom around the yard
+              when Bailey takes her outside. She also loves long walks along the
+              Fox River.
+            </p>
+          </div>
         </div>
       </Modal>
     </div>

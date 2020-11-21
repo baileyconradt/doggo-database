@@ -63,3 +63,16 @@ code {
 .specialModalHeader img {
   border-radius: 5px;
 }
+
+.keyword {
+  transition: 0.5s;
+  border: 1px solid #6f4326;
+  border-radius: 20px;
+}
+
+.keyword:hover {
+  transition: 0.5s;
+  background-color: #6f4326;
+  color: white;
+  cursor: pointer;
+}
