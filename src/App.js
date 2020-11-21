@@ -36,7 +36,7 @@ function App(props) {
 
 function SignOut() {
   return auth.currentUser && (
-    <button onCLick={() => auth.signOut()}>Sign Out</button>
+    <button onClick={() => auth.signOut()}>Sign Out</button>
   )
 }
 
