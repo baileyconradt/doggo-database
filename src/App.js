@@ -32,8 +32,12 @@ function App(props) {
       </div>
     )
 
+}
 
-
+function SignOut() {
+  return auth.currentUser && (
+    <button onCLick={() => auth.signOut()}>Sign Out</button>
+  )
 }
 
 export default App;
