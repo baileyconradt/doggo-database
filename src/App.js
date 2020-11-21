@@ -1,34 +1,39 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 import TopNav from './TopNav.js';
+import Login from './Login.js';
+import Home from './Home.js';
 
-function App() {
-  return (
-    <div className="App">
-<link
-  rel="stylesheet"
-  href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
-  integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
-  crossorigin="anonymous"
-/>
-<TopNav/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      
-    </div>
-  );
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+import 'firebase/auth';
+
+import {useAuthState} from 'react-firebase-hooks/auth';
+import {useCollectionData} from 'react-firebase-hooks/firestore';
+
+import {auth, firestore} from './firebaseStuff'
+
+function App(props) {
+
+  const [user] = useAuthState(auth);
+
+    let main;
+
+    return (
+      <div className="App">
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+            integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+            crossorigin="anonymous"
+          />
+        <TopNav />
+        {user ? <Home/> : <Login/>}
+      </div>
+    )
+
+
+
 }
 
 export default App;
