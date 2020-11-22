@@ -3,7 +3,7 @@ import {auth, firestore} from './firebaseStuff.js';
 import firebase from 'firebase/app';
 
 export default function TopNav(props) {
-    return (<Navbar bg="white" expand="lg" className='mt-0 pt-1'>
+    return (<Navbar bg="white" expand="lg" className='mt-0 pt-1 shadow-sm' fixed='top'>
     <Navbar.Brand href="#home">Corgo.Net</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav d-flex flex-row justify-content-center">
@@ -14,7 +14,7 @@ export default function TopNav(props) {
       </Nav>
       <Nav style={{flexGrow: 10}}>
       <Form inline className='grow'>
-        <Form.Control type="text" placeholder="Search" className="mr-sm-2" style={{width: '100%'}} />
+        <Form.Control type="text" placeholder="Search for Names, Breeds, and Keywords . . ." className="mr-sm-2 topSearch" style={{width: '100%'}} />
       </Form>
       </Nav>
       <Nav className='grow'>

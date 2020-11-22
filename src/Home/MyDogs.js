@@ -32,7 +32,7 @@ export default function MyDogs(props) {
             </Col>
         </Row>
         <Row>
-            <Col>
+            <Col className='pl-0'>
             <DogSection dogs={dogs}></DogSection >
             </Col>
         </Row>

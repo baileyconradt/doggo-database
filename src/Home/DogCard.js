@@ -38,7 +38,7 @@ export default function DogCard(props) {
   }, []);
 
   return (
-    <div className="m-3 shadow dogCardParent">
+    <div className="mt-3 mr-3 shadow dogCardParent">
       <Image
         variant="top"
         className="dogCard"
@@ -57,7 +57,7 @@ export default function DogCard(props) {
         centered
       >
         <div className="d-flex flex-row flex-wrap" style={{minHeight: '50vh'}}>
-          <Image src={photoURL} style={{flexGrow: 1, objectFit: 'cover'}} />
+          <Image src={photoURL} style={{flexGrow: 1, objectFit: 'cover', maxHeight: '70vh'}} />
           <div className="m-3 grow" style={{ width: "400px" }}>
           <div className='d-flex flex-column justify-content-between' style={{height: '100%'}}>
               <div>

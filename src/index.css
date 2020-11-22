@@ -1,3 +1,7 @@
+html {
+  background-color: #fbeed7 !important;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -78,4 +82,11 @@ code {
   background-color: #6f4326;
   color: white;
   cursor: pointer;
+}
+
+.topSearch {
+  border-radius: 15px !important;
+  background-color: rgb(233, 233, 233) !important;
+  color: rgb(209, 209, 209);
+  border: 0px solid black;
 }
