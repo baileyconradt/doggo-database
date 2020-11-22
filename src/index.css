@@ -56,6 +56,7 @@ code {
 
 .dogButton {
   background-color: #6f4326 !important;
+  border-color: initial ! important;
 }
 
 .specialModalHeader {

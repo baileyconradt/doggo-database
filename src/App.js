@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import TopNav from './TopNav.js';
-import Login from './Login.js';
+// import Login from './Login.js';
 import Home from './Home.js';
 
 import firebase from 'firebase/app';
@@ -27,8 +27,8 @@ function App(props) {
             integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
             crossorigin="anonymous"
           />
-        <TopNav />
-        {user ? <Home/> : <Login/>}
+        <TopNav user={user}/>
+        {user ? <Home/> : <div>Please sign in to view doggos :)</div>}
       </div>
     )
 
