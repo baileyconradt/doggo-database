@@ -1,14 +1,14 @@
 import { useState } from "react"
 import { Modal, Button, Form, Col } from "react-bootstrap"
 import firebase from 'firebase'
-const {firestore, auth} = require('../firebaseStuff')
+const { firestore, auth } = require('../firebaseStuff')
 
 
 
 const dogsRef = firestore.collection('dogs');
 const dogStorage = firebase.storage().ref()
 
-function addDoggo(name, bio, photo, dob, breed, setValidated, callback) {
+function addDoggo(name, bio, photo, dob, breed, setValidated, keywords, callback) {
     const form = document.getElementById('form')
     setValidated(true)
     if (form.checkValidity() === false) {
@@ -16,6 +16,12 @@ function addDoggo(name, bio, photo, dob, breed, setValidated, callback) {
     }
     console.log('here')
     const { uid, photoURL, displayName } = auth.currentUser;
+
+    let re = /\s|,\s/; // split on space or comma space
+    keywords = keywords.split(re);
+
+    
+
     var newImageRef = dogStorage.child('images/' + name)
     newImageRef.put(photo)
     .then( function(snapshot) {
@@ -26,12 +32,13 @@ function addDoggo(name, bio, photo, dob, breed, setValidated, callback) {
                 dogName: name,
                 bio: bio,
                 breed: breed,
-                color: 'blue',
+                color: 'Key Lime Green',
                 birthday: dob,
                 createdAt: firebase.firestore.FieldValue.serverTimestamp(),
                 uid,
                 displayName,
-                photoURL: url
+                photoURL: url,
+                keywords: keywords,
             })
             setValidated(false)
             callback()
@@ -100,10 +107,14 @@ export default function AddDog(props) {
                     
                     </Form.File>
                 </Form.Group>
+                <Form.Group controlId='keywords'>
+                        <Form.Label>Keywords</Form.Label>
+                        <Form.Control></Form.Control>
+                    </Form.Group>
             </Form>
         </Modal.Body>
         <Modal.Footer>
-            <Button onClick={e => addDoggo(document.getElementById('name').value, document.getElementById('bio').value, document.getElementById('photo').files[0], document.getElementById('dob').value, document.getElementById('breed').value, setValidated, () => {
+            <Button onClick={e => addDoggo(document.getElementById('name').value, document.getElementById('bio').value, document.getElementById('photo').files[0], document.getElementById('dob').value, document.getElementById('breed').value, setValidated, document.getElementById('keywords').value, () => {
                 //console.log('success!')
                 setShow(false);
             })}>Add Dog</Button>
