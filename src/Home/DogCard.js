@@ -20,7 +20,7 @@ export default function DogCard(props) {
   const [dogLink, updateLink] = useState("");
   const [show, setShow] = useState(false);
 
- const { dogName, bio, breed, color, birthday, displayName, photoURL, uid } = props.dog;
+ const { dogName, bio, breed, color, birthday, displayName, photoURL, uid, keywords } = props.dog;
 
     const dogsRef = firestore.collection('dogs');
 
@@ -72,9 +72,7 @@ export default function DogCard(props) {
             </div>
             <div>
             <div className="d-flex flex-row mt-auto" id="keywords">
-              <Keyword keyword='Fluffy' />
-              <Keyword keyword='Long' />
-              <Keyword keyword='Adorable' />
+              {keywords && keywords.map(keyword => <Keyword keyword={keyword}/>)}
             </div>
             </div>
             </div>
