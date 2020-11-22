@@ -1,5 +1,6 @@
 import react from 'react'
 import { Col, Container, Row, Button } from 'react-bootstrap'
+import AddDog from './AddDog'
 import DogSection from './DogSection'
 
 
@@ -12,7 +13,7 @@ export default function MyDogs(props) {
         <Row>
             <Col className='d-flex flex-row'>
             <h2 className='mr-3'>My Dogs</h2>
-            <Button className='dogButton my-1'>Add</Button>
+            <AddDog />
             </Col>
         </Row>
         <Row>
