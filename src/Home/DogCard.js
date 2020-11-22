@@ -72,7 +72,7 @@ export default function DogCard(props) {
             </div>
             <div>
             <div className="d-flex flex-row mt-auto" id="keywords">
-              {keywords && keywords.map(keyword => <Keyword keyword={keyword}/>)}
+              {keywords && keywords.map((keyword, i) => <Keyword key={i} keyword={keyword}/>)}
             </div>
             </div>
             </div>
