@@ -2,6 +2,7 @@ import react from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import DogCard from "./DogCard";
 
+
 /**
  * Takes in dogs, spits out cards
  * @param {object} dogs 
@@ -15,20 +16,14 @@ function renderCardsFromDogs(dogs) {
  * @param {object} props
  */
 export default function DogSection(props) {
+
   return (
     <Container fluid>
       <Row>
         <Col className="d-flex flex-wrap">
-          {
-            //this is where we would loop through and render each dog using the renderCardsFromDogs function
-          }
-          <DogCard></DogCard>
-          <DogCard></DogCard>
-          <DogCard></DogCard>
-          <DogCard></DogCard>
-          <DogCard></DogCard>
-          <DogCard></DogCard>
-          <DogCard></DogCard>
+          
+          {/* //loop through to render Doggos */}
+           {props.dogs && props.dogs.map(dog => <DogCard key={dog.id} dog={dog} />)}
         </Col>
       </Row>
     </Container>

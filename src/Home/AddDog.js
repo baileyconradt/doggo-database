@@ -8,7 +8,7 @@ const {firestore, auth} = require('../firebaseStuff')
 const dogsRef = firestore.collection('dogs');
 const dogStorage = firebase.storage().ref()
 
-function addDoggo(name, photo, dob, breed, callback) {
+function addDoggo(name, bio, photo, dob, breed, callback) {
     const { uid, photoURL, displayName } = auth.currentUser;
     var newImageRef = dogStorage.child('images/' + name)
     newImageRef.put(photo)
@@ -18,6 +18,7 @@ function addDoggo(name, photo, dob, breed, callback) {
         .then(function(url) {
             dogsRef.add({
                 dogName: name,
+                bio: bio,
                 breed: breed,
                 color: 'blue',
                 birthday: dob,
@@ -44,6 +45,10 @@ export default function AddDog(props) {
                 <Form.Group controlId='name'>
                     <Form.Label>Dog Name</Form.Label>
                     <Form.Control></Form.Control>
+                </Form.Group>
+                <Form.Group controlId='bio'>
+                    <Form.Label>Biography</Form.Label>
+                    <Form.Control as="textarea" rows="3"></Form.Control>
                 </Form.Group>
                 <Form.Row>
                 <Form.Group as={Col} controlId='breed'>
@@ -74,8 +79,9 @@ export default function AddDog(props) {
             </Form>
         </Modal.Body>
         <Modal.Footer>
-            <Button onClick={e => addDoggo(document.getElementById('name').value, document.getElementById('photo').files[0], document.getElementById('dob').value, document.getElementById('breed').value, () => {
-                console.log('success!')
+            <Button onClick={e => addDoggo(document.getElementById('name').value, document.getElementById('bio').value, document.getElementById('photo').files[0], document.getElementById('dob').value, document.getElementById('breed').value, () => {
+                //console.log('success!')
+                setShow(false);
             })}>Add Dog</Button>
         </Modal.Footer>
     </Modal>

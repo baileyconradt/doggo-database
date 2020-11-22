@@ -1,6 +1,7 @@
 import react, { useEffect, useState } from "react";
 import { Card, Image, Modal } from "react-bootstrap";
 import Keyword from "./Keyword";
+import { auth, firestore } from '../firebaseStuff.js';
 
 function getCorg() {
   fetch("https://dog.ceo/api/breed/pembroke/images/random")
@@ -19,6 +20,14 @@ export default function DogCard(props) {
   const [dogLink, updateLink] = useState("");
   const [show, setShow] = useState(false);
 
+ const { dogName, bio, breed, color, birthday, displayName, photoURL, uid } = props.dog;
+
+    const dogsRef = firestore.collection('dogs');
+
+    // const deleteDoggo = async (key) => {
+    //     await dogsRef.doc(key).delete();
+    // }
+
   useEffect(() => {
     fetch("https://dog.ceo/api/breed/pembroke/images/random")
       .then((res) => res.json())
@@ -33,12 +42,12 @@ export default function DogCard(props) {
       <Image
         variant="top"
         className="dogCard"
-        src={dogLink}
+        src={photoURL}
         onClick={() => {
           setShow(true);
         }}
       ></Image>
-      <p className="dogCardName">Luna</p>
+      <p className="dogCardName">{dogName}</p>
 
       <Modal
         show={show}
@@ -48,19 +57,17 @@ export default function DogCard(props) {
         centered
       >
         <div className="d-flex flex-row flex-wrap" style={{minHeight: '50vh'}}>
-          <Image src={dogLink} style={{flexGrow: 1, objectFit: 'cover'}} />
+          <Image src={photoURL} style={{flexGrow: 1, objectFit: 'cover'}} />
           <div className="m-3 grow" style={{ width: "400px" }}>
           <div className='d-flex flex-column justify-content-between' style={{height: '100%'}}>
               <div>
-            <h3>Luna</h3>
+            <h3>{dogName}</h3>
             <small className="text-muted">
-              <p>Pembroke Welsh Corgi owned by Bailey C.</p>
+              <p>{breed} owned by {displayName}</p>
             </small>
             
             <p>
-              Look at this cute pupper go. She loves to zoom around the yard
-              when Bailey takes her outside. She also loves long walks along the
-              Fox River.
+             {bio}
             </p>
             </div>
             <div>
