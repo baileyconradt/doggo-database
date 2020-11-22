@@ -18,8 +18,8 @@ export default function TopDogs(props) {
             </Col>
         </Row>
         <Row>
-            <Col>
-            <DogSection></DogSection>
+            <Col className='pl-0'>
+            <DogSection ></DogSection>
             </Col>
         </Row>
     </Container>

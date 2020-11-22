@@ -29,7 +29,7 @@ export default function DogCard(props) {
   }, []);
 
   return (
-    <div className="m-3 shadow dogCardParent">
+    <div className="mt-3 mr-3 shadow dogCardParent">
       <Image
         variant="top"
         className="dogCard"

@@ -28,7 +28,7 @@ function App(props) {
             crossorigin="anonymous"
           />
         <TopNav user={user}/>
-        {user ? <Home/> : <div>Please sign in to view doggos :)</div>}
+        {user ? <Home /> : <div>Please sign in to view doggos :)</div>}
       </div>
     )
 
