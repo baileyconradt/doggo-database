@@ -109,7 +109,7 @@ export default function AddDog(props) {
                 </Form.Group>
                 <Form.Group controlId='keywords'>
                         <Form.Label>Keywords</Form.Label>
-                        <Form.Control></Form.Control>
+                        <Form.Control required></Form.Control>
                     </Form.Group>
             </Form>
         </Modal.Body>
