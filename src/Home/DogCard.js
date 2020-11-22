@@ -1,5 +1,5 @@
-import react, { useEffect, useState } from "react";
-import { Card, Image, Modal } from "react-bootstrap";
+import { useEffect, useState } from "react";
+import { Card, Image, Modal, Button } from "react-bootstrap";
 import Keyword from "./Keyword";
 import { auth, firestore } from '../firebaseStuff.js';
 
@@ -21,12 +21,13 @@ export default function DogCard(props) {
   const [show, setShow] = useState(false);
 
  const { dogName, bio, breed, color, birthday, displayName, photoURL, uid, keywords } = props.dog;
+ const key = props.dog.id;
 
-    const dogsRef = firestore.collection('dogs');
-
-    // const deleteDoggo = async (key) => {
-    //     await dogsRef.doc(key).delete();
-    // }
+    const deleteDoggo = () => {  
+        firestore.collection('dogs').doc(key).delete().then(
+          console.log("deleted!")
+        ).catch(error => console.log(error));
+    }
 
   useEffect(() => {
     fetch("https://dog.ceo/api/breed/pembroke/images/random")
@@ -71,10 +72,12 @@ export default function DogCard(props) {
             </p>
             </div>
             <div>
+            {(uid==auth.currentUser.uid) ? <Button className='dogButton my-1' onClick={deleteDoggo}>Delete Doggo</Button> : <></>}
             <div className="d-flex flex-row mt-auto" id="keywords">
               {keywords && keywords.map((keyword, i) => <Keyword key={i} keyword={keyword}/>)}
             </div>
             </div>
+            
             </div>
             
             

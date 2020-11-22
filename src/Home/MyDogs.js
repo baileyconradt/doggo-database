@@ -12,7 +12,7 @@ function useDogs() {
 
     useEffect(() => {
         firestore.collection('dogs').where("uid", "==", auth.currentUser.uid).onSnapshot((snapshot) => {
-            const newDogs = snapshot.docs.map((doc) => ({
+            const newDogs = snapshot.docs.sort().map((doc) => ({
                 id: doc.id,
                 ... doc.data()
             }));
@@ -30,7 +30,7 @@ function useDogs() {
 export default function MyDogs(props) {
 
 const dogs = useDogs();
-
+//THIS CONSOLE.LOG IS NECESSARY, don't ask me why lol
 //console.log(dogs);
 
     //const dogsRef = firestore.collection('dogs');
