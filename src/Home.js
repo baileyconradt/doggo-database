@@ -65,7 +65,7 @@ export default function Home(props) {
     );*/
 
         return (<div>
-            <Container fluid style={{marginTop: '66px'}}>
+            <Container fluid style={{marginTop: '66px', backgroundColor: '#fbeed7'}}>
         <Row>
             <Col>
             <MyDogs />
