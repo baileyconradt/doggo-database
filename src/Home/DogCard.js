@@ -29,6 +29,10 @@ export default function DogCard(props) {
         ).catch(error => console.log(error));
     }
 
+    const editDoggo = () => { 
+      
+     }
+
   useEffect(() => {
     fetch("https://dog.ceo/api/breed/pembroke/images/random")
       .then((res) => res.json())
@@ -73,6 +77,7 @@ export default function DogCard(props) {
             </div>
             <div>
             {(uid==auth.currentUser.uid) ? <Button className='dogButton my-1' onClick={deleteDoggo}>Delete Doggo</Button> : <></>}
+            {(uid==auth.currentUser.uid) ? <Button className='dogButton my-1' onClick={editDoggo}>Edit Doggo</Button> : <></>}
             <div className="d-flex flex-row mt-auto" id="keywords">
               {keywords && keywords.map((keyword, i) => <Keyword key={i} keyword={keyword}/>)}
             </div>

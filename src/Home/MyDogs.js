@@ -18,7 +18,6 @@ function useDogs() {
             }));
             setDogs(newDogs);
         })
-       
     }, []);
     return dogs;
 }
@@ -30,14 +29,6 @@ function useDogs() {
 export default function MyDogs(props) {
 
 const dogs = useDogs();
-//THIS CONSOLE.LOG IS NECESSARY, don't ask me why lol
-//console.log(dogs);
-
-    //const dogsRef = firestore.collection('dogs');
-    //const query = dogsRef.orderBy('createdAt').limit(25);
-
-    //const [dogs] = useCollectionData(query, { idField: 'id' });
-
 
     return <Container fluid className='m-3'>
         <Row>

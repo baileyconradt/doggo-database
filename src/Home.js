@@ -79,28 +79,28 @@ export default function Home(props) {
     
 }
 
-function Dog(props) {
+// function Dog(props) {
 
-    const { dogName, breed, color, birthday, displayName } = props.dog;
-    const key = props.dog.id;
+//     const { dogName, breed, color, birthday, displayName } = props.dog;
+//     const key = props.dog.id;
 
-    const dogsRef = firestore.collection('dogs');
+//     const dogsRef = firestore.collection('dogs');
 
-    const deleteDoggo = async (key) => {
-        await dogsRef.doc(key).delete();
-    }
+//     const deleteDoggo = async (key) => {
+//         await dogsRef.doc(key).delete();
+//     }
 
 
-    return (<Card>
-        <Card.Title>{dogName}</Card.Title>
-        <Card.Text></Card.Text>
-        <Card.Text>Added by: {displayName}</Card.Text>
-        <Card.Text>Breed: {breed}</Card.Text>
-        <Card.Text>Color: {color}</Card.Text>
-        <Card.Text>Birthday: {birthday}</Card.Text>
-        <Button onClick={() => deleteDoggo(key)}>Delete Doggo</Button>
-    </Card>);
-}
+//     return (<Card>
+//         <Card.Title>{dogName}</Card.Title>
+//         <Card.Text></Card.Text>
+//         <Card.Text>Added by: {displayName}</Card.Text>
+//         <Card.Text>Breed: {breed}</Card.Text>
+//         <Card.Text>Color: {color}</Card.Text>
+//         <Card.Text>Birthday: {birthday}</Card.Text>
+//         <Button onClick={() => deleteDoggo(key)}>Delete Doggo</Button>
+//     </Card>);
+// }
 
 //dogs
     //name
