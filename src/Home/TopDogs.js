@@ -8,7 +8,7 @@ function useDogs() {
     const [dogs, setDogs] = useState([]);
 
     useEffect(() => {
-        firestore.collection('dogs').orderBy('createdAt').limit(25).onSnapshot((snapshot) => {
+        firestore.collection('dogs').orderBy('score', 'desc').limit(25).onSnapshot((snapshot) => {
             const newDogs = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 ... doc.data()

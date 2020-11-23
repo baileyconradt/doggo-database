@@ -39,6 +39,9 @@ function addDoggo(name, bio, photo, dob, breed, setValidated, keywords, callback
                 displayName,
                 photoURL: url,
                 keywords: keywords,
+                score: 0,
+                upvoteUsers: [],
+                downvoteUsers: []
             })
             setValidated(false)
             callback()

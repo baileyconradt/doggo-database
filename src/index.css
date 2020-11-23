@@ -50,6 +50,47 @@ code {
   opacity: 80%;
 }
 
+.dogVoteBox {
+  position: absolute;
+  top: 100%;
+  transform: translate(0%, -100%);
+  display: flex;
+}
+
+.dogUpvote{
+  color: white;
+  background-color: #28a745 !important;
+  border-color: rgba(0, 0, 0, 0) !important;
+  height: 30px;
+  font-size: medium;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 2px 4px 2px 4px;
+  cursor: pointer;
+}
+
+.dogDownvote{
+  color: white;
+  background-color: #dc3545 !important;
+  border-color: rgba(0, 0, 0, 0) !important;
+  height: 30px;
+  transform: scaleY(-1);
+  font-size: medium;
+  font-weight: bold;
+  border-radius: 5px;
+  padding: 2px 4px 2px 4px;
+  cursor: pointer;
+}
+
+.dogScore{
+  padding: 2px 4px 2px 4px;
+  color: white;
+  background-color: #6f4326;
+  opacity: 80%;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
 .grow {
   flex-grow: 1;
 }
