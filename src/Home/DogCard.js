@@ -3,14 +3,14 @@ import { Card, Image, Modal, Button } from "react-bootstrap";
 import Keyword from "./Keyword";
 import { auth, firestore } from '../firebaseStuff.js';
 
-function getCorg() {
-  fetch("https://dog.ceo/api/breed/pembroke/images/random")
-    .then((res) => res.json())
-    .then((res) => {
-      console.log(res.message);
-      return res.message;
-    });
-}
+// function getCorg() {
+//   fetch("https://dog.ceo/api/breed/pembroke/images/random")
+//     .then((res) => res.json())
+//     .then((res) => {
+//       console.log(res.message);
+//       return res.message;
+//     });
+// }
 
 /**
  * This is the dog card, which should typically be rendered within a Dog Section. You will need to pass information about the dog to this function, including and especially the url for the dog photo
@@ -20,7 +20,7 @@ export default function DogCard(props) {
   const [dogLink, updateLink] = useState("");
   const [show, setShow] = useState(false);
 
-  const { dogName, bio, breed, color, birthday, displayName, photoURL, uid, keywords, score } = props.dog;
+  const { dogName, bio, breed, color, birthday, displayName, photoURL, uid, keywords, score, downvoteUsers, upvoteUsers } = props.dog;
   const key = props.dog.id;
 
   const deleteDoggo = () => {
@@ -125,15 +125,6 @@ export default function DogCard(props) {
 
   }
 
-  useEffect(() => {
-    fetch("https://dog.ceo/api/breed/pembroke/images/random")
-      .then((res) => res.json())
-      .then((res) => {
-        //console.log(res.message)
-        updateLink(res.message);
-      });
-  }, []);
-
   return (
     <div className="mt-3 mr-3 shadow dogCardParent">
       <Image
@@ -144,8 +135,8 @@ export default function DogCard(props) {
           setShow(true);
         }}
       ></Image>
-      <div className="dogVoteBox"><img className="dogUpvote" onClick={() => upvoteDoggo()} src='https://cdn.iconscout.com/icon/free/png-512/paw-29-459421.png' />
-        <img className="dogDownvote" onClick={() => downvoteDoggo()} src='https://cdn.iconscout.com/icon/free/png-512/paw-29-459421.png' />
+      <div className="dogVoteBox"><img className="dogUpvote" style={{opacity: [upvoteUsers.includes(auth.currentUser.uid) ? "60%" : "100%"]}} onClick={() => upvoteDoggo()} src='https://cdn.iconscout.com/icon/free/png-512/paw-29-459421.png' />
+        <img className="dogDownvote" style={{opacity: [downvoteUsers.includes(auth.currentUser.uid) ? "60%" : "100%"]}} onClick={() => downvoteDoggo()} src='https://cdn.iconscout.com/icon/free/png-512/paw-29-459421.png' />
         <div className="dogScore">{score ? score : 0}</div>
       </div>
       <p className="dogCardName">{dogName}</p>
@@ -166,7 +157,9 @@ export default function DogCard(props) {
                 <small className="text-muted">
                   <p>{breed} owned by {displayName}</p>
                 </small>
-
+                <small className="text-muted">
+                  <p>Birthday: {birthday} | Color: {color}</p>
+                </small>
                 <p>
                   {bio}
                 </p>
@@ -178,10 +171,7 @@ export default function DogCard(props) {
                   {keywords && keywords.map((keyword, i) => <Keyword key={i} keyword={keyword} />)}
                 </div>
               </div>
-
             </div>
-
-
           </div>
         </div>
       </Modal>
