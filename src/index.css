@@ -86,7 +86,7 @@ code {
   padding: 2px 4px 2px 4px;
   color: white;
   background-color: #6f4326;
-  opacity: 80%;
+  opacity: .8;
   border-radius: 5px;
   font-weight: bold;
 }
