@@ -1,10 +1,18 @@
-import {Navbar, Nav, NavDropdown, Button, Form, FormControl} from 'react-bootstrap';
+import {Navbar, Nav, NavDropdown, Button, Form, FormControl, NavbarBrand} from 'react-bootstrap';
 import {auth, firestore} from './firebaseStuff.js';
 import firebase from 'firebase/app';
 
 export default function TopNav(props) {
-    return (<Navbar bg="white" expand="lg" className='mt-0 pt-1 shadow-sm' fixed='top'>
-    <Navbar.Brand href="#home">Corgo.Net</Navbar.Brand>
+    return (<Navbar  bg="white" expand="lg" className='mt-0 pt-1 pb-0 shadow-sm' fixed='top'>
+    <Navbar.Brand style={{paddingBottom: "initial !important"}} href="#home">
+    <img
+        src="/Corgo2-01.svg"
+        width=""
+        height="60"
+        className="d-inline-block align-top"
+        alt="Corgo.Net logo"
+      /></Navbar.Brand>
+      <Navbar.Brand href="#home">Corgo.Net</Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav d-flex flex-row justify-content-center">
       <Nav className="mr-5 grow">
